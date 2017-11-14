@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lamp-web
+spec:
+  tls:
+  - hosts:
+    - lampweb.manitestdomain.com
+    secretName: manitestdomain-secret
+  rules:
+  - host: lampweb.manitestdomain.com
+    http:
+      paths:
+      - path: 
+        backend:
+          serviceName: web
+          servicePort: 5000
+
+#           apiVersion: extensions/v1beta1
+# kind: Ingress
+# metadata:
+#   name: lampweb
+# spec:
+#   rules:
+#   - host: lampweb.manitestdomain.com
+#     http:
+#       paths:
+#       - path: 
+#         backend:
+#           serviceName: eurekaservice
+#           servicePort: 8761
